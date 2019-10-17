@@ -1,0 +1,12 @@
+SELECT user_id, MAX(CPM) 
+FROM
+	(SELECT u.user_id, sdc.design_id, s.site_id, sa.site_area_id, SUM( sdc.partner_gain*1000 / sdc.view_count) AS CPM 
+    FROM stat_design_cache sdc
+	RIGHT JOIN site_area_design_1 sad1 ON sdc.design_id = sad1.site_area_design_1_id	
+	INNER JOIN site_area sa ON sad1.site_area_id = sa.site_area_id
+	INNER JOIN site s ON sa.parent_id = s.site_id
+	INNER JOIN user u ON s.user_id = u.user_id 
+	GROUP BY u.user_id, sdc.design_id, s.site_id, sa.site_area_id ) AS tab
+	
+GROUP BY  user_id 
+ORDER BY MAX(CPM) DESC;
