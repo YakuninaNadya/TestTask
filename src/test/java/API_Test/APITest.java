@@ -25,16 +25,19 @@ public class APITest {
     }
 
     @Test
+    // тест проверяет, что тендеров 3
     public void checkThreeTenders() {
         Assert.assertEquals(getResult().get("result.args.max_rows"), "3");
     }
 
     @Test
+    // тест проверяет, что найденные тендеры запущены компанией "О КЕЙ"
     public void checkCompanyName() {
         Assert.assertEquals(getResult().get("result.data[0].company_name"), "О КЕЙ");
     }
 
     @Test
+    // тест проверяет, что найденные тендеры имеют статус "открыт"
     public void checkOpenness() {
         Assert.assertEquals(getResult().get("result.args.open_only"), "true");
     }
