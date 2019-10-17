@@ -1,0 +1,5 @@
+1) http://www.tender.pro/api/_info.tenderlist_by_set.json?_key=1732ede4de680a0c93d81f01d7bac7d1&set_type_id=1&set_id=150152&open_only=true&max_rows=3
+
+2) http://www.tender.pro/api/_tender.info.json?_key=1732ede4de680a0c93d81f01d7bac7d1&company_id=150152&id=403242
+
+3) http://www.tender.pro/api/_company.info_public.json?id=150152
